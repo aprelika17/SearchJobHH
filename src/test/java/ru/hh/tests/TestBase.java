@@ -19,15 +19,16 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         //Configuration.holdBrowserOpen = true;
-//        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
-//        Configuration.browser = System.getProperty("browser","chrome");
-//        Configuration.browserVersion = System.getProperty("version","100.0");
-//        Configuration.remote = System.getProperty("selenoid");
-
-        Configuration.browserSize = "1920x1080";
-        Configuration.browser = "chrome";
-        Configuration.browserVersion = "102";
         Configuration.baseUrl = "https://hh.ru";
+        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
+        Configuration.browser = System.getProperty("browser","chrome");
+        Configuration.browserVersion = System.getProperty("version","100.0");
+        Configuration.remote = System.getProperty("selenoid");
+
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.browser = "chrome";
+//        Configuration.browserVersion = "102";
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
