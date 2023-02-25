@@ -13,7 +13,7 @@ public class TestData {
                 "//following::span//span[@class='bloko-text bloko-text_tertiary']").getOwnText();
         int jobCount = Integer.parseInt(jobCountString);
         Faker faker = new Faker();
-        int jobNumber = faker.number().numberBetween(0, jobCount);
+        int jobNumber = faker.number().numberBetween(1, jobCount);
         return jobNumber;
     }
 
