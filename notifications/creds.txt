@@ -1,9 +1,0 @@
-Telegram username: @menkova_allerts_bot
-Telegram token: 6001955184:AAGqd4Ycp1Z8fDsUsGE7pIXdD3BSUOBpIsE
-Telegram id: -1001850142384
-
-//взять изменения из чата
-curl https://api.telegram.org/bot6001955184:AAGqd4Ycp1Z8fDsUsGE7pIXdD3BSUOBpIsE/getUpdates | jq.message.chat.id
-
-Run jar with notifications
-java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.2.1.jar
