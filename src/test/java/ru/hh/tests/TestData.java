@@ -3,11 +3,10 @@ package ru.hh.tests;
 import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 
-import java.util.Locale;
-
 public class TestData {
 
     String company = "Тинькофф";
+    String companyPageText = "Тинькофф — финансовая экосистема для 25 млн клиентов";
 
     int getJobNumber() {
         String jobCountString = Selenide.$x("//*[text()='Удаленная работа']" +

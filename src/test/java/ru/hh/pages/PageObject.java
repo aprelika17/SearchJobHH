@@ -16,7 +16,7 @@ public class PageObject {
     }
     
     public PageObject chooseSimpleSearch() {
-        $("[data-qa=search-button]").click();
+        $("[data-qa=search-button]").shouldBe(visible, Duration.ofSeconds(40)).click();
         return this;
     }
     public PageObject searchCompanyByName(String value) {
@@ -30,7 +30,7 @@ public class PageObject {
         return this;
     }
     public PageObject verifyCompanyPageByCertainTextInclude(String value) {
-        $(".tmpl_hh_wrapper").shouldHave(Condition.text("Тинькофф — финансовая экосистема для 25 млн клиентов"));
+        $(".tmpl_hh_wrapper").shouldHave(Condition.text(value));
         return this;
     }
 

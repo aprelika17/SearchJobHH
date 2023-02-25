@@ -7,9 +7,6 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @Tag("remote")
@@ -43,7 +40,7 @@ public class SearchCompanyTest extends TestBase {
         });
 
         step("Проверка на включение заданного текста на карточке компании", () -> {
-            pageObject.verifyCompanyPageByCertainTextInclude(testData.company);
+            pageObject.verifyCompanyPageByCertainTextInclude(testData.companyPageText);
         });
     }
 }
