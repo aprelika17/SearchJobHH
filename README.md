@@ -20,43 +20,43 @@ Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Allure 
 
 
 # Запуск автотестов выполняется на сервере Jenkins
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/09-ElenaSeversk-unit13/">Ссылка на проект в Jenkins</a>
+> <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">Ссылка на проект в Jenkins</a>
 
 ### Параметры сборки
 
 * login (default user1)
 * password (default 1234)
-* test_group (default ui_tests). Параметр определяет группу тестов для запуска.
+* test_group (default remote_test). Параметр определяет группу тестов для запуска.
 
 ##  Запуск тестов из терминала
 ### Локальный запуск тестов
 
 ```
-gradle clean run_tests 
+gradle clean remote_test
+
 ```
 
 ### Удаленный запуск тестов
 
 ```
-export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
-export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
+export BROWSER=$(echo "${BROWSER}" | awk '{print $1}')
+export VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
-./gradlew clean run_tests \
-  -Dbrowser=${BROWSER_PLATFORM} \
-  -Dversion=${BROWSER_VERSION} \
-  -DwindowSize=${BROWSER_SIZE} \
-  -DremoteUrl=${REMOTE_URL}
+./gradlew clean remote_test\
+ "-Dbrowser=${BROWSER}"\
+"-Dversion=${VERSION}"\
+"-Dresolution=${RESOLUTION}"\
+"-Dselenoid=${SELENOID}"
+
 ```
 
-> `${BROWSER}` - комбинация браузера и версии (_по умолчанию - <code>chrome 100.0</code>_).
->
-> `${BROWSER_PLATFORM}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
+> `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
 > 
-> `${BROWSER_VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
+> `${VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
 > 
-> `${BROWSER_SIZE}` - размер окна браузера (_по умолчанию - <code>1366x768</code>_).
+> `${RESOLUTION}` - размер окна браузера (_по умолчанию - <code>1920x1080</code>_).
 >
-> `${REMOTE_URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
+> `${SELENOID}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
 <a id="jenkins"></a>
 ## Запуск тестов в Jenkins
@@ -69,14 +69,6 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
 ### Для запуска автотестов в Jenkins
 #### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">проект</a>
-### Параметры сборки
-
-* login (default user1)
-* password (default 1234)
-* test_group (default ui_tests). Параметр определяет группу тестов для запуска.
-
-### Для запуска автотестов в Jenkins
-#### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/09-ElenaSeversk-unit13/">проект</a>
 
 ![This is an image](/design/images/jenkins1.png)
 
@@ -90,7 +82,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 ## Локальный запуск автотестов
 Пример командной строки:
 ```bash
-gradle clean ui_tests -Dlogin=user1 -Dpassword=1234 -DtestUrl=selenoid.autotests.cloud/wd/hub/
+gradle clean remote_test -Dlogin=user1 -Dpassword=1234 -DtestUrl=selenoid.autotests.cloud/wd/hub/
 ```
 
 Получение отчёта:
@@ -99,7 +91,7 @@ allure serve build/allure-results
 ```
 
 # Полная статистика по прохождению тестпланов, отчёты и приложения к ним хранятся в Allure TestOps
-> <a target="_blank" href="https://allure.autotests.cloud/project/804">Сссылка на проект в AllureTestOps</a> (запрос доступа admin@qa.guru)
+> <a target="_blank" href="https://allure.autotests.cloud/project/1918">Сссылка на проект в AllureTestOps</a> (запрос доступа admin@qa.guru)
 
 ### Тест-планы проекта
 ![This is an image](/design/images/testplans.png)
