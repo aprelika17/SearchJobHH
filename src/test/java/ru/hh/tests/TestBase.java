@@ -47,4 +47,12 @@ public class TestBase {
     void afterEach(){
         Selenide.closeWindow();
     }
+
+    @AfterEach
+    void addAttachments(){
+        quru.qa.helpers.Attach.screenshotAs("Last screenshot");
+        quru.qa.helpers.Attach.pageSource();
+        quru.qa.helpers.Attach.browserConsoleLogs();
+        quru.qa.helpers.Attach.addVideo();
+    }
 }
