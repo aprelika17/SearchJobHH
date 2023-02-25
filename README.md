@@ -28,6 +28,45 @@ Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Allure 
 * password (default 1234)
 * test_group (default ui_tests). Параметр определяет группу тестов для запуска.
 
+##  Запуск тестов из терминала
+### Локальный запуск тестов
+
+```
+gradle clean run_tests 
+```
+
+### Удаленный запуск тестов
+
+```
+export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
+export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
+
+./gradlew clean run_tests \
+  -Dbrowser=${BROWSER_PLATFORM} \
+  -Dversion=${BROWSER_VERSION} \
+  -DwindowSize=${BROWSER_SIZE} \
+  -DremoteUrl=${REMOTE_URL}
+```
+
+> `${BROWSER}` - комбинация браузера и версии (_по умолчанию - <code>chrome 100.0</code>_).
+>
+> `${BROWSER_PLATFORM}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
+> 
+> `${BROWSER_VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
+> 
+> `${BROWSER_SIZE}` - размер окна браузера (_по умолчанию - <code>1366x768</code>_).
+>
+> `${REMOTE_URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
+
+<a id="jenkins"></a>
+## Запуск тестов в Jenkins
+
+> Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
+
+<p align="center">
+<img src="images/screenshots/JenkinsJob.png"/></a>
+</p>
+
 ### Для запуска автотестов в Jenkins
 #### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">проект</a>
 ### Параметры сборки
