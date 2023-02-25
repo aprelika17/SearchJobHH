@@ -1,28 +1,35 @@
 # Проект по тестированию сайта hh.ru
 > <a target="_blank" href="https://hh.ru/">Ссылка на сайт</a>
 
-![This is an image](/design/images/rosatom-career.ru.jpeg)
+![This is an image](/forReadMe/images/hhrumain.jpg)
 
 #### Список проверок, реализованных в автотестах
-- [x] Наличие требуемых заголовков в верхнем меню страницы
-- [x] Наличие заданных пунктов подменю для меню "Молодым специалистам"
-- [x] Наличие блока подписки на социальные сети в подвале сайта
-- [x] Наличие имиджевого текста на первой странице
-- [x] Выполнение поиска заданной вакансии. Проверка, что открылась соответствующая страница и содержимое строки поиска соответствует заданному
+- [x] Поиск компании в каталоге и проверка верности открытой карточки
+- [x] Поиск конкретной вакансии и проверка нужного стека
+- [x] Поиск вакансии "удаленная работа" и проверка любой выпавшей в поиске на наличие этого условия
+- [x] В карточке заданной компании присутствует кнопка "Я хочу тут работать"
+- [x] Проверка ввода некорректного email после нажатия "Я хочу тут работать"
 #### Список проверок ручного тестирования
-- [x] Визуальная характеристика главной страницы сайта, соответствие единому корпоративному стилю
-- [x] Адаптивность вёрстки
-- [x] Соответствие вёрстки сайта общепринятым стандартам
+- [x] Поиск вакансии в заданном городе
+- [x] Адаптивность вёрстки главной страницы
 
 ## Проект реализован с использованием
 Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Allure TestOps Telegram Jira
 
-![This is an image](/design/icons/Java.png)![This is an image](/design/icons/Gradle.png)![This is an image](/design/icons/Intelij_IDEA.png)![This is an image](/design/icons/Selenide.png)![This is an image](/design/icons/Selenoid.png)![This is an image](/design/icons/JUnit5.png)![This is an image](/design/icons/Jenkins.png)![This is an image](/design/icons/Allure_Report.png)![This is an image](/design/icons/AllureTestOps.png)![This is an image](/design/icons/Telegram.png)![This is an image](/design/icons/Jira.png)
+![This is an image](/forReadMe/icons/Java.png)![This is an image](/forReadMe/icons/Gradle.png)![This is an image](/forReadMe/icons/Intelij_IDEA.png)![This is an image](/forReadMe/icons/Selenide.png)![This is an image](/forReadMe/icons/Selenoid.png)![This is an image](/forReadMe/icons/JUnit5.png)![This is an image](/forReadMe/icons/Jenkins.png)![This is an image](/forReadMe/icons/Allure_Report.png)![This is an image](/forReadMe/icons/AllureTestOps.png)![This is an image](/forReadMe/icons/Telegram.png)![This is an image](/forReadMe/icons/Jira.png)
 
 
 # Запуск автотестов выполняется на сервере Jenkins
 > <a target="_blank" href="https://jenkins.autotests.cloud/job/09-ElenaSeversk-unit13/">Ссылка на проект в Jenkins</a>
 
+### Параметры сборки
+
+* login (default user1)
+* password (default 1234)
+* test_group (default ui_tests). Параметр определяет группу тестов для запуска.
+
+### Для запуска автотестов в Jenkins
+#### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">проект</a>
 ### Параметры сборки
 
 * login (default user1)
