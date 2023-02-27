@@ -20,7 +20,7 @@ Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Allure 
 
 
 # Запуск автотестов выполняется на сервере Jenkins
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">Ссылка на проект в Jenkins</a>
+> <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkins_hh.ru/">Ссылка на проект в Jenkins</a>
 
 ### Параметры сборки
 
@@ -68,16 +68,16 @@ export VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 </p>
 
 ### Для запуска автотестов в Jenkins
-#### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkinsHHru/">проект</a>
+#### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkins_hh.ru/">проект</a>
 
-![This is an image](/design/images/jenkins1.png)
+![This is an image](/forReadMe/images/jenkinsStartRun.jpg)
 
 #### 2. Выбрать пункт **Собрать с параметрами**
 #### 3. В случае необходимости изменить параметры, выбрав значения из выпадающих списков
 #### 4. Нажать **Собрать**
 #### 5. Результат запуска сборки можно посмотреть в отчёте Allure
 
-![This is an image](/design/images/jenkins2a.png)
+![This is an image](/forReadMe/images/jenkinsAllure.jpg)
 
 ## Локальный запуск автотестов
 Пример командной строки:
@@ -90,49 +90,47 @@ gradle clean remote_test -Dlogin=user1 -Dpassword=1234 -DtestUrl=selenoid.autote
 allure serve build/allure-results
 ```
 
-# Полная статистика по прохождению тестпланов, отчёты и приложения к ним хранятся в Allure TestOps
+# Интеграция с Allure TestOps
 > <a target="_blank" href="https://allure.autotests.cloud/project/1918">Сссылка на проект в AllureTestOps</a> (запрос доступа admin@qa.guru)
 
-### Тест-планы проекта
-![This is an image](/design/images/testplans.png)
-### Кейсы тест-плана выполнения ручного тестирования
-![This is an image](/design/images/manual.png)
-### Кейсы тест-плана выполнения автотестирования
-![This is an image](/design/images/auto.png)
-### Общий список всех кейсов, имеющихся в системе (без разделения по тест-планам и виду выполнения тестирования)
-![This is an image](/design/images/testcases.png)
+### Тест-кейсы
+![This is an image](/forReadMe/images/allureTestOps.jpg)
+### Пример мануального тест-кейса
+![This is an image](/forReadMe/images/allureTestOpsManual.jpg)
+### Пример запуска тест-кейсов
+![This is an image](/forReadMe/images/testcases.png)
 ### Пример dashboard с общими результатами тестирования
-![This is an image](/design/images/dashboard_all.png)
+![This is an image](/forReadMe/images/dashboard_all.png)
 ### В том числе сводная статистика запусков
-![This is an image](/design/images/dashboard_all2.png)
+![This is an image](/forReadMe/images/dashboard_all2.png)
 
 ### Пример отчёта выполнения одного из автотестов
-![This is an image](/design/images/onecasereport.png)
+![This is an image](/forReadMe/images/onecasereport.png)
 #### *После окончания выполнения автотестов по каждому из них в отчёте доступны скриншоты и исходный код страницы, лог консоли браузера и видеозапись выполнения теста.*
 
 ### Пример видеозаписи прохождения теста
-![This is an image](/design/images/Video.gif)
+![This is an image](/forReadMe/images/hhru_video.mp4)
 
 
 ## По результатам ручного тестирования выявлены дефекты, зафиксированные в соответствующих задачах AllureTestOps
 ### Тест план выполнения ручного тестирования
-![This is an image](/design/images/testplan2.png)
+![This is an image](/forReadMe/images/allureTestOpsManual.jpg)
 ### Сводные результаты ручного тестирования
-![This is an image](/design/images/failedresult.png)
+![This is an image](/forReadMe/images/failedresult.png)
 ### Пример описания дефекта в Allure TestOps
-![This is an image](/design/images/testops2.png)
+![This is an image](/forReadMe/images/testops2.png)
 ### Список выявленных дефектов, открытых как задачи в Allure TestOps
-![This is an image](design/images/defects.png)
+![This is an image](forReadMe/images/defects.png)
 
 # Результаты выполнения тестов и информация о выявленных дефектах интегрированы с Atlassian Jira
 > <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-286">Ссылка на задачу в Jira</a> (запрос доступа admin@qa.guru)
 
 Задачи на выявленные дефекты оформлены как подзадачи к данной. Связаны с соответствующими дефектами в Allure TestOps
 
-![This is an image](/design/images/jira_n.png)
+![This is an image](/forReadMe/images/jira_n.png)
 
 # Настроено автоматическое оповещение о результатах сборки Jenkins в Telegram-бот
-![This is an image](/design/images/bot.png)
+![This is an image](/forReadMe/images/telegram.jpg)
 
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
