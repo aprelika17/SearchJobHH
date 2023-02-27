@@ -22,7 +22,7 @@
 <img width="6%" title="Allure Report" src="/forReadMe/icons/Allure_Report.png">
 <img width="6%" title="Gradle" src="/forReadMe/icons/Gradle.png">
 <img width="6%" title="JUnit5" src="/forReadMe/icons/JUnit5.png">
-<img width="6%" title="GitHub" src="/forReadMe/icons/GitHub.jpeg">
+<img width="6%" title="GitHub" src="/forReadMe/icons/GitHub.jpg">
 <img width="6%" title="Jenkins" src="/forReadMe/icons/Jenkins.png">
 <img width="6%" title="Allure TestOps" src="/forReadMe/icons/AllureTestOps.png">
 </p>
