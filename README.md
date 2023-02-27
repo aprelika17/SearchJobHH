@@ -59,7 +59,7 @@ Allure-отчет включает в себя:
 ### Локальный запуск тестов
 
 ```
-gradle clean run_tests 
+gradle clean remote_test
 ```
 
 ### Удаленный запуск тестов
