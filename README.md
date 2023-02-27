@@ -16,7 +16,6 @@
 ## Технологии и инструменты
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="/forReadMe/icons/IntelliJ_IDEA.png">
 <img width="6%" title="Java" src="/forReadMe/icons/Java.png">
 <img width="6%" title="Selenide" src="/forReadMe/icons/Selenide.png">
 <img width="6%" title="Selenoid" src="/forReadMe/icons/Selenoid.png">
