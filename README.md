@@ -1,60 +1,85 @@
-# Проект по тестированию сайта hh.ru
-> <a target="_blank" href="https://hh.ru/">Ссылка на сайт</a>
+<h1 >Проект по тестированию сайта hh.ru <a href="https://hh.ru/ ">hh.ru</a></h1>
 
-![This is an image](/forReadMe/images/hhrumain.jpg)
+## Содержание
 
-#### Список проверок, реализованных в автотестах
-- [x] Поиск компании в каталоге и проверка верности открытой карточки
-- [x] Поиск конкретной вакансии и проверка нужного стека
-- [x] Поиск вакансии "удаленная работа" и проверка любой выпавшей в поиске на наличие этого условия
-- [x] В карточке заданной компании присутствует кнопка "Я хочу тут работать"
-- [x] Проверка ввода некорректного email после нажатия "Я хочу тут работать"
-#### Список проверок ручного тестирования
-- [x] Поиск вакансии в заданном городе
-- [x] Адаптивность вёрстки главной страницы
+* <a href="#tools">Технологии и инструменты</a>
+* <a href="#cases">Реализованные проверки</a>
+* <a href="#console">Запуск тестов из терминала</a>
+* <a href="#jenkins">Запуск тестов в Jenkins</a>
+* <a href="#allure">Отчеты в Allure</a>
+* <a href="#testops">Интеграция с Allure TestOps</a>
+* <a href="#testops">Интеграция с Jira</a>
+* <a href="#telegram">Уведомления в Telegram с использованием бота</a>
+* <a href="#video">Пример прогона теста в Selenoid</a>
 
-## Проект реализован с использованием
-Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Allure TestOps Telegram Jira
+<a id="tools"></a>
+## Технологии и инструменты
 
-![This is an image](/forReadMe/icons/Java.png)![This is an image](/forReadMe/icons/Gradle.png)![This is an image](/forReadMe/icons/Intelij_IDEA.png)![This is an image](/forReadMe/icons/Selenide.png)![This is an image](/forReadMe/icons/Selenoid.png)![This is an image](/forReadMe/icons/JUnit5.png)![This is an image](/forReadMe/icons/Jenkins.png)![This is an image](/forReadMe/icons/Allure_Report.png)![This is an image](/forReadMe/icons/AllureTestOps.png)![This is an image](/forReadMe/icons/Telegram.png)![This is an image](/forReadMe/icons/Jira.png)
+<p align="center">
+<img width="6%" title="IntelliJ IDEA" src="/forReadMe/icons/IntelliJ_IDEA.png">
+<img width="6%" title="Java" src="/forReadMe/icons/Java.png">
+<img width="6%" title="Selenide" src="/forReadMe/icons/Selenide.png">
+<img width="6%" title="Selenoid" src="/forReadMe/icons/Selenoid.png">
+<img width="6%" title="Allure Report" src="/forReadMe/icons/Allure_Report.png">
+<img width="6%" title="Gradle" src="/forReadMe/icons/Gradle.png">
+<img width="6%" title="JUnit5" src="/forReadMe/icons/JUnit5.png">
+<img width="6%" title="GitHub" src="/forReadMe/icons/GitHub.jpeg">
+<img width="6%" title="Jenkins" src="/forReadMe/icons/Jenkins.png">
+<img width="6%" title="Allure TestOps" src="/forReadMe/icons/AllureTestOps.png">
+</p>
 
+Автотесты написаны на <code>Java</code> с использованием <code>JUnit 5</code> и <code>Gradle</code>.
+Для UI-тестов использован фреймворк [Selenide](https://selenide.org/).
+Запуск тестов можно осуществлять локально или с помощью [Selenoid](https://aerokube.com/selenoid/).
+Также реализована сборка в <code>Jenkins</code> с формированием Allure-отчета и отправкой уведомления с результатами в <code>Telegram</code> после завершения прогона.
 
-# Запуск автотестов выполняется на сервере Jenkins
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkins_hh.ru/">Ссылка на проект в Jenkins</a>
+Allure-отчет включает в себя:
+* шаги выполнения тестов;
+* скриншот страницы в браузере в момент окончания автотеста;
+* Page Source;
+* логи браузерной консоли;
+* видео выполнения автотеста.
 
-### Параметры сборки
+<a id="cases"></a>
+## Реализованные проверки
 
-* login (default user1)
-* password (default 1234)
-* test_group (default remote_test). Параметр определяет группу тестов для запуска.
+### Автоматизированные проверки
+- [ ] Поиск компании в каталоге и проверка верности открытой карточки
+- [ ] Поиск конкретной вакансии и проверка нужного стека
+- [ ] Поиск вакансии "удаленная работа" и проверка любой выпавшей в поиске на наличие этого условия
+- [ ] В карточке заданной компании присутствует кнопка "Я хочу тут работать"
+- [ ] Проверка ввода некорректного email после нажатия "Я хочу тут работать"
 
+### Мануальные проверки
+- [ ] Поиск вакансии в заданном городе
+- [ ] Адаптивность вёрстки главной страницы
+
+<a id="console"></a>
 ##  Запуск тестов из терминала
 ### Локальный запуск тестов
 
 ```
-gradle clean remote_test
-
+gradle clean run_tests 
 ```
 
 ### Удаленный запуск тестов
 
 ```
-export BROWSER=$(echo "${BROWSER}" | awk '{print $1}')
-export VERSION=$(echo "${BROWSER}" | awk '{print $2}')
+export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
+export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
-./gradlew clean remote_test\
- "-Dbrowser=${BROWSER}"\
-"-Dversion=${VERSION}"\
-"-Dresolution=${RESOLUTION}"\
-"-Dselenoid=${SELENOID}"
-
+./gradlew clean run_tests \
+  -Dbrowser=${BROWSER} \
+  -Dversion=${VERSION} \
+  -DwindowSize=${RESOLUTION} \
+  -DremoteUrl=${SELENOID}
 ```
 
 > `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
 > 
 > `${VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
 > 
-> `${RESOLUTION}` - размер окна браузера (_по умолчанию - <code>1920x1080</code>_).
+> `${RESOLUTION}` - размер окна браузера (_по умолчанию - <code>1366x768</code>_).
 >
 > `${SELENOID}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
@@ -64,74 +89,59 @@ export VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
 <p align="center">
-<img src="images/screenshots/JenkinsJob.png"/></a>
+<img src="/forReadMe/images/jenkinsStartRun.jpg"/></a>
 </p>
 
-### Для запуска автотестов в Jenkins
-#### 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/menkovaJenkins_hh.ru/">проект</a>
+<a id="allure"></a>
+## Отчеты в Allure
 
-![This is an image](/forReadMe/images/jenkinsStartRun.jpg)
+### Основное окно
 
-#### 2. Выбрать пункт **Собрать с параметрами**
-#### 3. В случае необходимости изменить параметры, выбрав значения из выпадающих списков
-#### 4. Нажать **Собрать**
-#### 5. Результат запуска сборки можно посмотреть в отчёте Allure
+<p align="center">
+<img src="/forReadMe/images/allureReport.jpg">
+</p>
 
-![This is an image](/forReadMe/images/jenkinsAllure.jpg)
+### Тесты
 
-## Локальный запуск автотестов
-Пример командной строки:
-```bash
-gradle clean remote_test -Dlogin=user1 -Dpassword=1234 -DtestUrl=selenoid.autotests.cloud/wd/hub/
-```
+<p align="center">
+<img src="/forReadMe/images/allureReportTests.jpg">
+</p>
 
-Получение отчёта:
-```bash
-allure serve build/allure-results
-```
-
-# Интеграция с Allure TestOps
-> <a target="_blank" href="https://allure.autotests.cloud/project/1918">Сссылка на проект в AllureTestOps</a> (запрос доступа admin@qa.guru)
+<a id="testops"></a>
+## Интеграция с Allure TestOps 
 
 ### Тест-кейсы
-![This is an image](/forReadMe/images/allureTestOps.jpg)
+<p align="center">
+<img src="/forReadMe/images/allureTestOps.jpg">
+</p>
+
 ### Пример мануального тест-кейса
-![This is an image](/forReadMe/images/allureTestOpsManual.jpg)
+<p align="center">
+<img src="/forReadMe/images/allureTestOpsManual.jpg">
+</p>
+
 ### Пример запуска тест-кейсов
-![This is an image](/forReadMe/images/testcases.png)
-### Пример dashboard с общими результатами тестирования
-![This is an image](/forReadMe/images/dashboard_all.png)
-### В том числе сводная статистика запусков
-![This is an image](/forReadMe/images/dashboard_all2.png)
+<p align="center">
+<img src="/forReadMe/images/allureReportTestsStartRun.jpg">
+</p>
 
-### Пример отчёта выполнения одного из автотестов
-![This is an image](/forReadMe/images/onecasereport.png)
-#### *После окончания выполнения автотестов по каждому из них в отчёте доступны скриншоты и исходный код страницы, лог консоли браузера и видеозапись выполнения теста.*
+<a id="jira"></a>
+## Интеграция с Jira 
+<p align="center">
+<img src="/forReadMe/icon/Jira.png">
+</p>
 
-### Пример видеозаписи прохождения теста
-![This is an image](/forReadMe/images/hhru_video.mp4)
+<a id="telegram"></a>
+## Уведомления в Telegram с использованием бота
 
+<p>
+<img src="/forReadMe/images/telegram.jpg">
+</p>
 
-## По результатам ручного тестирования выявлены дефекты, зафиксированные в соответствующих задачах AllureTestOps
-### Тест план выполнения ручного тестирования
-![This is an image](/forReadMe/images/allureTestOpsManual.jpg)
-### Сводные результаты ручного тестирования
-![This is an image](/forReadMe/images/failedresult.png)
-### Пример описания дефекта в Allure TestOps
-![This is an image](/forReadMe/images/testops2.png)
-### Список выявленных дефектов, открытых как задачи в Allure TestOps
-![This is an image](forReadMe/images/defects.png)
+<a id="video"></a>
+## Пример прогона теста в Selenoid
 
-# Результаты выполнения тестов и информация о выявленных дефектах интегрированы с Atlassian Jira
-> <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-286">Ссылка на задачу в Jira</a> (запрос доступа admin@qa.guru)
-
-Задачи на выявленные дефекты оформлены как подзадачи к данной. Связаны с соответствующими дефектами в Allure TestOps
-
-![This is an image](/forReadMe/images/jira_n.png)
-
-# Настроено автоматическое оповещение о результатах сборки Jenkins в Telegram-бот
-![This is an image](/forReadMe/images/telegram.jpg)
-
-
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+> К каждому тесту в отчете прилагается видео
+<p align="center">
+  <img src="/forReadMe/images/hhru_video.gif">
+</p>
