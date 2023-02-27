@@ -16,16 +16,16 @@
 ## Технологии и инструменты
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="images/logo/IntelliJ_IDEA.png">
-<img width="6%" title="Java" src="images/logo/Java_logo.png">
-<img width="6%" title="Selenide" src="images/logo/Selenide.png">
-<img width="6%" title="Selenoid" src="images/logo/Selenoid.png">
-<img width="6%" title="Allure Report" src="images/logo/AllureReports.png">
-<img width="6%" title="Gradle" src="images/logo/Gradle.png">
-<img width="6%" title="JUnit5" src="images/logo/JUnit5.png">
-<img width="6%" title="GitHub" src="images/logo/GitHub.png">
-<img width="6%" title="Jenkins" src="images/logo/Jenkins.png">
-<img width="6%" title="Allure TestOps" src="images/logo/AllureTestOps.svg">
+<img width="6%" title="IntelliJ IDEA" src="forReadMe/icons/IntelliJ_IDEA.png">
+<img width="6%" title="Java" src="forReadMe/icons/Java_logo.png">
+<img width="6%" title="Selenide" src="forReadMe/icons/Selenide.png">
+<img width="6%" title="Selenoid" src="forReadMe/icons/Selenoid.png">
+<img width="6%" title="Allure Report" src="forReadMe/icons/AllureReports.png">
+<img width="6%" title="Gradle" src="forReadMe/icons/Gradle.png">
+<img width="6%" title="JUnit5" src="forReadMe/icons/JUnit5.png">
+<img width="6%" title="GitHub" src="forReadMe/icons/GitHub.png">
+<img width="6%" title="Jenkins" src="forReadMe/icons/Jenkins.png">
+<img width="6%" title="Allure TestOps" src="forReadMe/icons/AllureTestOps.svg">
 </p>
 
 Автотесты написаны на <code>Java</code> с использованием <code>JUnit 5</code> и <code>Gradle</code>.
