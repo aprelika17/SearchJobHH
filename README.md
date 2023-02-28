@@ -1,4 +1,4 @@
-<h1 >Проект по тестированию сайта hh.ru <a href="https://hh.ru/ ">hh.ru</a></h1>
+<h1 >Проект по тестированию сайта <a href="https://hh.ru/ ">hh.ru</a></h1>
 
 ## Содержание
 
@@ -16,15 +16,16 @@
 ## Технологии и инструменты
 
 <p align="center">
-<img width="6%" title="Java" src="/forReadMe/icons/Java.png">
-<img width="6%" title="Selenide" src="/forReadMe/icons/Selenide.png">
-<img width="6%" title="Selenoid" src="/forReadMe/icons/Selenoid.png">
-<img width="6%" title="Allure Report" src="/forReadMe/icons/Allure_Report.png">
-<img width="6%" title="Gradle" src="/forReadMe/icons/Gradle.png">
-<img width="6%" title="JUnit5" src="/forReadMe/icons/JUnit5.png">
-<img width="6%" title="GitHub" src="/forReadMe/icons/GitHub.jpg">
-<img width="6%" title="Jenkins" src="/forReadMe/icons/Jenkins.png">
-<img width="6%" title="Allure TestOps" src="/forReadMe/icons/AllureTestOps.png">
+<img width="6%" title="IntelliJ IDEA" src="forReadMe/icons/IntelliJ_IDEA.png">
+<img width="6%" title="Java" src="forReadMe/icons/Java_logo.png">
+<img width="6%" title="Selenide" src="forReadMe/icons/Selenide.png">
+<img width="6%" title="Selenoid" src="forReadMe/icons/Selenoid.png">
+<img width="6%" title="Allure Report" src="forReadMe/icons/AllureReports.png">
+<img width="6%" title="Gradle" src="forReadMe/icons/Gradle.png">
+<img width="6%" title="JUnit5" src="forReadMe/icons/JUnit5.png">
+<img width="6%" title="GitHub" src="forReadMe/icons/GitHub.png">
+<img width="6%" title="Jenkins" src="forReadMe/icons/Jenkins.png">
+<img width="6%" title="Allure TestOps" src="forReadMe/icons/AllureTestOps.svg">
 </p>
 
 Автотесты написаны на <code>Java</code> с использованием <code>JUnit 5</code> и <code>Gradle</code>.
@@ -58,7 +59,7 @@ Allure-отчет включает в себя:
 ### Локальный запуск тестов
 
 ```
-gradle clean run_tests 
+gradle clean remote_test
 ```
 
 ### Удаленный запуск тестов
