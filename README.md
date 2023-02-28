@@ -68,7 +68,7 @@ gradle clean remote_test
 clean remote_test \
   -Dbrowser=${BROWSER} \
   -Dversion=${VERSION} \
-  -DwindowSize=${RESOLUTION} \
+  -Dresolution=${RESOLUTION} \
   -Dselenoid=${SELENOID}
 ```
 
