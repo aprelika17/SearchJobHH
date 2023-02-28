@@ -65,14 +65,11 @@ gradle clean remote_test
 ### Удаленный запуск тестов
 
 ```
-export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
-export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
-
-./gradlew clean run_tests \
+clean remote_test \
   -Dbrowser=${BROWSER} \
   -Dversion=${VERSION} \
   -DwindowSize=${RESOLUTION} \
-  -DremoteUrl=${SELENOID}
+  -Dselenoid=${SELENOID}
 ```
 
 > `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
@@ -128,7 +125,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 <a id="jira"></a>
 ## Интеграция с Jira 
 <p align="center">
-<img src="/forReadMe/icon/Jira.png">
+<img src="/forReadMe/images/jiraTask.jpg">
 </p>
 
 <a id="telegram"></a>
