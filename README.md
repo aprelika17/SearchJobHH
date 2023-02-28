@@ -68,7 +68,7 @@ gradle clean remote_test
 export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
 export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
-./gradlew clean run_tests \
+./gradlew clean remote_test \
   -Dbrowser=${BROWSER} \
   -Dversion=${VERSION} \
   -DwindowSize=${RESOLUTION} \
