@@ -69,7 +69,7 @@ clean remote_test \
   -Dbrowser=${BROWSER} \
   -Dversion=${VERSION} \
   -DwindowSize=${RESOLUTION} \
-  -DremoteUrl=${SELENOID}
+  -Dselenoid=${SELENOID}
 ```
 
 > `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
