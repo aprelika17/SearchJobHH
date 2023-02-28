@@ -128,7 +128,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 <a id="jira"></a>
 ## Интеграция с Jira 
 <p align="center">
-<img src="/forReadMe/icon/Jira.png">
+<img src="/forReadMe/icon/jiraTask.jpg">
 </p>
 
 <a id="telegram"></a>
