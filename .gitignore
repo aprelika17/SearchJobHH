@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
-
-@aprelika17
-maryregen
-/
-stream-17-java-demoqa-tests
-Public
-Fork your own copy of maryregen/stream-17-java-demoqa-tests
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-stream-17-java-demoqa-tests/.gitignore
-@maryregen
-maryregen Added project Demoqa to different repository
-Latest commit 2c6b219 last month
- History
- 1 contributor
-59 lines (51 sloc)  783 Bytes
-
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -84,20 +55,3 @@ bin/
 ### Example user template
 
 # IntelliJ project files
-out
-gen
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-stream-17-java-demoqa-tests/.gitignore at master · maryregen/stream-17-java-demoqa-tests
